@@ -3,7 +3,7 @@
 <mapper namespace="com.inhatc.mapper.MemberMapper">
 	
 	<select id ="getTime" resultType="string">
-	select now()
+		select now()
 	</select>
 	
 	<insert id="insertMember">

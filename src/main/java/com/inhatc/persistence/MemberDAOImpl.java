@@ -11,12 +11,13 @@ import org.springframework.stereotype.Repository;
 
 import com.inhatc.domain.MemberVO;
 
-@Repository
+@Repository	// 데이터베이스에 CRUD 명령을 실행하게 만드는 인터페이스
 public class MemberDAOImpl implements MemberDAO {
 	
-	@Inject
+	@Inject	// root-context의 bean 객체를 자동 주입
 	private SqlSession sqlSession;
 	
+	// Mapper
 	private static final String NAMESPACE = "com.inhatc.mapper.MemberMapper";
 	
 	@Override
@@ -37,6 +38,7 @@ public class MemberDAOImpl implements MemberDAO {
 	
 	@Override
 	public MemberVO readMemberWithPW(String userid, String userpw) throws Exception {
+		// 하나의 값만 넘겨주기에 HashMap을 만들어 보낸다.
 		Map<String, Object> paramMap = new HashMap<String, Object>();
 		paramMap.put("userid", userid);
 		paramMap.put("userpw", userpw);
