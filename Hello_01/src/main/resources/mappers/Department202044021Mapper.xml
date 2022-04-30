@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+						"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.inhatc.mapper.Department202044021Mapper">
+	
+	<insert id="insertDepartment">
+		insert into
+			tbl_202044021_department (departid, departname, students, yeonhan)
+		values
+			(#{departid}, #{departname}, #{students}, #{yeonhan})
+	</insert>
+	
+	
+	<select id="selectDepartment" resultType="com.inhatc.domain.Department202044021VO">
+		select *
+		from tbl_202044021_department
+		where departid=#{departmentid}
+	</select>
+	
+	<update id="updateDepartment">
+		update tbl_202044021_department
+		set departname=#{departname}, students=#{students}, yeonhan=#{yeonhan}
+		where departid=#{departid}
+	</update>
+	
+	<select id="listAll" resultType="com.inhatc.domain.Department202044021VO">
+		<![CDATA[
+			select *
+			from tbl_202044021_department
+		]]>
+	</select>
+	
+	<delete id="deleteDepartment">
+		delete from tbl_202044021_department
+		where departid=#{departid}
+	</delete>
+	
+	<select id="listCount" resultType="int">
+		select count(*)
+		from tbl_202044021_department
+	</select>
+	
+</mapper>
+
